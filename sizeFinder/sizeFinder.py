@@ -30,7 +30,7 @@ def main():
                     
                     # Show animation every 1000 files
                     if file_count % 1000 == 0:
-                        sys.stdout.write(f'\rCalculating total size {animation_chars[animation_index]}')
+                        sys.stdout.write(f'\rCalculating total size ({size} bytes in {file_count} files){animation_chars[animation_index]}')
                         sys.stdout.flush()
                         animation_index = (animation_index + 1) % len(animation_chars)
                         
@@ -64,7 +64,7 @@ def main():
                             # Show dots animation every 2000 files
                             if file_counter % 2000 == 0:
                                 dots = '.' * ((dot_count % 3) + 1)
-                                sys.stdout.write(f'\rAnalyzing subdirectories{dots}   ')
+                                sys.stdout.write(f'\rAnalyzing subdirectories ({subdir_size} bytes in {file_counter} files){dots}')
                                 sys.stdout.flush()
                                 dot_count += 1
                                 
@@ -88,4 +88,8 @@ def main():
             main()
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        input('Press Enter to exit...')
