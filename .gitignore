@@ -1,3 +1,4 @@
 */build
 *.spec
 /fun stuff/disco/build
+test.py

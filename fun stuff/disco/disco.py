@@ -3,7 +3,22 @@ import screen_brightness_control as sbc
 import ctypes
 import random
 import subprocess
+import keyboard
+from reqs.keys import keys
 # from playsound import playsound
+
+string = list("DISCO TIME!!! ")
+discoIterator = 0
+
+def remap(e):
+    global discoIterator
+    
+    if e.event_type == 'down':
+        print(discoIterator)
+        keyboard.write(string[discoIterator % len(string)])
+        discoIterator += 1
+
+keyboard.hook(lambda e: remap(e), True)
 
 root = Tk()
 root.geometry("250x100")
