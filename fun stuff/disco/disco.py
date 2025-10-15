@@ -52,7 +52,7 @@ colors = ["#FF00C8", "#FFC400", "#C7FF44", "#98FFE9", "#FFA500", "#B609B6"]
 currentColor = colors[0]
 
 tick = 0
-time = 3  # in seconds
+time = 60  # in seconds
 discoMode = False
 lvl = 0
 
